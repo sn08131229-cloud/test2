@@ -1,0 +1,2 @@
+<script setup>import {onMounted,ref} from 'vue';import axios from 'axios'; const ds=ref([]);onMounted(async()=>{ds.value=(await axios.get(import.meta.env.VITE_API_BASE_URL+'/devices')).data.data||[]})</script>
+<template><div><h2>设备列表</h2><div v-if='!ds.length'>暂无数据</div><ul><li v-for='d in ds' :key='d.deviceId'>{{d.deviceCode}} - {{d.status}} - 归属:{{d.currentOwnerOrgName}} 持有:{{d.currentHolderOrgName}}</li></ul></div></template>
