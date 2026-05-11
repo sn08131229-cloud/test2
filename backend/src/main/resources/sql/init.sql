@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS medical_device_trace DEFAULT CHARACTER SET utf8mb4;
+USE medical_device_trace;
+CREATE TABLE IF NOT EXISTS organization(id BIGINT PRIMARY KEY,org_name VARCHAR(100),org_type VARCHAR(30),contact_name VARCHAR(50),contact_phone VARCHAR(30),address VARCHAR(255),license_no VARCHAR(100));
+CREATE TABLE IF NOT EXISTS users(id BIGINT PRIMARY KEY,username VARCHAR(64) UNIQUE,password VARCHAR(128),role VARCHAR(30),org_id BIGINT,org_name VARCHAR(100));
+INSERT INTO organization VALUES (1,'平台管理方','ADMIN','Admin','13000000001','Beijing','ADM-001'),(2,'卫健监管局','REGULATOR','Reg','13000000002','Beijing','REG-001'),(10,'华康供应商A','SUPPLIER','SupA','13000000010','Shanghai','SUP-001'),(11,'康达供应商B','SUPPLIER','SupB','13000000011','Shenzhen','SUP-002'),(20,'第一医院','HOSPITAL','Hos1','13000000020','Beijing','HOS-001'),(21,'第二医院','HOSPITAL','Hos2','13000000021','Tianjin','HOS-002'),(22,'第三医院','HOSPITAL','Hos3','13000000022','Nanjing','HOS-003');
+INSERT INTO users VALUES (1,'admin','admin123','ADMIN',1,'平台管理方'),(2,'regulator','reg123','REGULATOR',2,'卫健监管局'),(10,'supplier1','sup123','SUPPLIER',10,'华康供应商A'),(11,'supplier2','sup123','SUPPLIER',11,'康达供应商B'),(20,'hospital1','hos123','HOSPITAL',20,'第一医院'),(21,'hospital2','hos123','HOSPITAL',21,'第二医院'),(22,'hospital3','hos123','HOSPITAL',22,'第三医院');
