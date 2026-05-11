@@ -77,3 +77,14 @@ source /path/to/init.sql;
 - 后端: http://localhost:8080
 - MySQL: localhost:3306
 - WeBASE-Front: http://虚拟机IP:5002/WeBASE-Front
+
+## 合约（已补充）
+- 合约文件：`contract/DeviceTrace.sol`
+- 已实现方法：
+  - `registerDevice`
+  - `addFlowRecord`
+  - `getDeviceFlowCount`
+  - `getDeviceFlowByIndex`
+  - `getLatestDeviceStatus`
+
+说明：当前后端默认走 `MockChainService`，你在 Ubuntu 虚拟机启动 WeBASE/FISCO 后，可按该合约部署并把地址填入 `chain.contractAddress`。
